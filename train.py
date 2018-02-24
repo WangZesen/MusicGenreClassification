@@ -15,11 +15,13 @@ net.fit(train_data = dataIter,
 		eval_metric = 'MSE',
 		optimizer = "sgd",
 		initializer = deploy.get_initializer(),
-		num_epoch = 100
+		num_epoch = 1
 		)
 
 results = net.score(dataIter, ['MSE', 'accuracy'], reset = True)
 print results
+
+net.save_params('models/test.params')
 
 '''
 num_epoch = 100,
