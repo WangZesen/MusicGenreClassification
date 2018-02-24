@@ -19,6 +19,7 @@ for fileName in fileLists:
 			curData = np.swapaxes(curData, 1, 2)
 			# print curData.shape
 			data.append(curData)
+			print fileName
 			for i in range(numOfGenres):
 				if fileName.startswith(genres[i]):
 					curLabel = [0.] * numOfGenres
@@ -26,7 +27,7 @@ for fileName in fileLists:
 					labels.append(curLabel)
 		count += 1
 	if count > 50:
-		break	
+		break
 
 
 data = np.ndarray.tolist(np.array(data))

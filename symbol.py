@@ -67,4 +67,4 @@ def get_symbol(num_classes = 10):
 
 
 if __name__ == "__main__":
-	get_symbol()
+	getSymbol()

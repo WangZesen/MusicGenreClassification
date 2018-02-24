@@ -3,7 +3,7 @@ import mxnet as mx
 import pickle
 
 
-def getDataIter():
+def get_train_data_iter():
 	dataFile = open("data/data", 'r')
 	dataContent = dataFile.read()
 	data = np.asarray(pickle.loads(dataContent))
