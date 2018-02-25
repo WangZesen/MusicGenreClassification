@@ -19,7 +19,7 @@ for fileName in fileLists:
 			curData = np.asarray(pickle.loads(content))
 			curData = np.swapaxes(curData, 0, 2)
 			curData = np.swapaxes(curData, 1, 2)
-			data.append(curData)
+			data.append(curData[0:1])
 			print fileName
 			for i in range(numOfGenres):
 				if fileName.startswith(genres[i]):
