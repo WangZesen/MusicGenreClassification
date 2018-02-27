@@ -3,9 +3,11 @@ import numpy as np
 
 
 count = 0
-labels = []
 data = []
+labels = []
 numOfGenres = 10
+train_sample = 300
+val_sample = 50
 genres = ["blues", "classic", "country", "disco", "hiphop", "jazz", "metal", "pop", "reggae", "rock"]
 
 fileLists = os.listdir("extractData")
@@ -27,7 +29,7 @@ for fileName in fileLists:
 					labels.append(curLabel)
 		count += 1
 		
-	if count > 100 and (not train):
+	if count > train_sample and (not train):
 		print "Writing Train Data to Disk..."
 		
 		listData = np.ndarray.tolist(np.array(data))
@@ -43,7 +45,7 @@ for fileName in fileLists:
 		train = True
 		print "Finished"
 		
-	if count > 150:
+	if count > train_sample + val_sample:
 		print "Writing Validation Data to Disk..."
 		listData = np.ndarray.tolist(np.array(data))
 		with open("data/valData", "w") as f:

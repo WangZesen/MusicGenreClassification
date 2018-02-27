@@ -11,10 +11,10 @@ def get_symbol(num_classes = 10):
 	data = mx.symbol.Variable('data')
 	data_bn = mx.symbol.BatchNorm(data = data, fix_gamma = fix_gamma, eps = eps, name = "data_batch_norm")
 
-	conv1 = mx.symbol.Convolution(data = data_bn, num_filter = 256, kernel = (4, 4), stride = (1, 1), pad = (2, 2), name = "conv1")
+	conv1 = mx.symbol.Convolution(data = data_bn, num_filter = 256, kernel = (3, 3), stride = (1, 1), pad = (1, 1), name = "conv1")
 	conv1_bn = mx.symbol.BatchNorm(data = conv1, fix_gamma = fix_gamma, eps = eps, name = "conv1_batch_norm")
 	conv1_act = mx.symbol.Activation(data= conv1_bn, act_type='relu', name='conv1_relu')
-	pool1 = mx.symbol.Pooling(data = conv1_act, kernel=(2, 2), stride=(2, 2), pad=(0, 0), pool_type="max", name = "pool1")
+	pool1 = mx.symbol.Pooling(data = conv1_act, kernel=(2, 2), stride=(2, 2), pad=(1, 0), pool_type="max", name = "pool1")
 
 	conv2 = mx.symbol.Convolution(data = pool1, num_filter = 128, kernel = (4, 4), stride = (1, 1), pad = (2, 2), name = "conv2")
 	conv2_bn = mx.symbol.BatchNorm(data = conv2, fix_gamma = fix_gamma, eps = eps, name = "conv2_batch_norm")
@@ -55,16 +55,48 @@ def get_symbol(num_classes = 10):
 	fc1 = mx.symbol.FullyConnected(data = concate, num_hidden = num_classes)
 
 	softmax = mx.symbol.SoftmaxOutput(data = fc1, name='softmax')
-
 	'''
-	arg_shape, output_shape, aux_shape = concate.infer_shape(data = (3, 5, 599, 128))
+	arg_shape, output_shape, aux_shape = data_bn.infer_shape(data = (3, 5, 599, 128))
+	print arg_shape
+	print output_shape
+	print aux_shape	
+	'''
+	return softmax
+
+def get_autoencoder():
+	data = mx.symbol.Variable('data')
+	label = mx.symbol.Variable('label')
+	data_bn = mx.symbol.BatchNorm(data = data, fix_gamma = fix_gamma, eps = eps, name = "data_batch_norm")
+
+	conv1 = mx.symbol.Convolution(data = data_bn, num_filter = 256, kernel = (3, 3), stride = (1, 1), pad = (1, 1), name = "conv1")
+	conv1_bn = mx.symbol.BatchNorm(data = conv1, fix_gamma = fix_gamma, eps = eps, name = "conv1_batch_norm")
+	conv1_act = mx.symbol.Activation(data= conv1_bn, act_type='relu', name='conv1_relu')
+	pool1 = mx.symbol.Pooling(data = conv1_act, kernel=(2, 2), stride=(2, 2), pad=(1, 0), pool_type="max", name = "pool1")
+
+	deconv1 = mx.symbol.Deconvolution(data = pool1, kernel = (2, 2), stride = (2, 2), pad = (0, 0), num_filter = 256, name = "deconv1")
+	deconv1_bn = mx.symbol.BatchNorm(data = deconv1, fix_gamma = fix_gamma, eps = eps, name = "deconv1_batch_norm")
+	deconv1_act = mx.symbol.Activation(data= deconv1_bn, act_type='relu', name='deconv1_act')
+	
+	deconv2 = mx.symbol.Deconvolution(data = deconv1_act, kernel = (4, 3), stride = (1, 1), pad = (2, 1), num_filter = 5, name = "deconv2")
+	deconv2_bn = mx.symbol.BatchNorm(data = deconv2, fix_gamma = fix_gamma, eps = eps, name = "deconv2_batch_norm")
+	
+	diff = mx.symbol.broadcast_minus(deconv2_bn, data_bn, name = "diff")
+	diff_flat = mx.symbol.sum(diff, name = "diff_flatten", axis = 1)
+	diff_flat = mx.symbol.sum(diff_flat, name = "diff_flatten", axis = 1)
+	diff_flat = mx.symbol.sum(diff_flat, name = "diff_flatten", axis = 1)	
+	
+	linearRegress = mx.symbol.LinearRegressionOutput(diff_flat, label, "regress")
+
+	'''	
+	arg_shape, output_shape, aux_shape = linearRegress.infer_shape(data = (3, 5, 599, 128))
 	print arg_shape
 	print output_shape
 	print aux_shape
 	'''
-
-	return softmax
-
+	
+	return linearRegress
+	
 
 if __name__ == "__main__":
-	getSymbol()
+	# get_symbol()
+	get_autoencoder()
