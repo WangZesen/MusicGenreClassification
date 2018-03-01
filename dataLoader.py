@@ -53,4 +53,25 @@ def get_data_iter():
 	train_data_iter = dataIter.DiskDataIter(train_data, train_label, deploy.get_batch_size())
 	val_data_iter = dataIter.DiskDataIter(val_data, val_label, deploy.get_batch_size())	
 	return train_data_iter, val_data_iter
+	
+def get_data_iter_auto_encoder():
+	train_percent = 0.9
+	file_name_list = []
+	label_list = []
+	file_list = os.listdir("extractData")
+	for file_name in file_list:
+		if file_name.endswith(".pp"):
+			file_name_list.append("extractData/" + file_name)
+			label_list.append(0)
+	concatenated = zip(file_name_list, label_list)
+	random.shuffle(concatenated)
+	file_name_list, label_list = zip(*concatenated)
+	total_num = len(label_list)
+	train_data = file_name_list[0: int(total_num * train_percent)]
+	train_label = label_list[0: int(total_num * train_percent)]
+	val_data = file_name_list[int(total_num * train_percent): total_num]
+	val_label = label_list[int(total_num * train_percent): total_num]
+	train_data_iter = dataIter.DiskDataIterEncoder(train_data, train_label, 5)
+	val_data_iter = dataIter.DiskDataIterEncoder(val_data, val_label, 5)	
+	return train_data_iter, val_data_iter
 
