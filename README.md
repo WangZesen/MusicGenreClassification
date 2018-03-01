@@ -3,7 +3,7 @@
 IPP
 
 ### Todo
-- [ ] Data Iterator
+- [x] Data Iterator
 
 
 data file link: https://drive.google.com/drive/folders/1WQ0koI3FuHLLomt8itUAH0475ZfuN303?usp=sharing
