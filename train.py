@@ -2,11 +2,13 @@ import mxnet as mx
 import dataLoader, deploy, symbol, debug
 
 network = symbol.get_symbol(num_classes = 10)
-net = mx.mod.Module(symbol = network, context = mx.gpu(0))
+# print network.list_arguments()
+
+net = mx.mod.Module(symbol = network, context = mx.gpu(0), fixed_param_names = [ "fc1_weight", "fc1_bias", "fc2_weight", "fc2_bias"])
 
 trainDataIter, valDataIter = dataLoader.get_data_iter()
 
-num_epoch = 100
+num_epoch = 120
 
 try:
 	net.fit(train_data = trainDataIter,
@@ -26,14 +28,14 @@ try:
 	print "[Info] Training Result:", results
 	
 	print "[Info] Saving Parameters..."
-	net.save_params('models/test_{}.params'.format(str(num_epoch)))
+	net.save_params('models/test2_{}.params'.format(str(num_epoch)))
 	print "[Info] Finished"
 			
 except KeyboardInterrupt:
 	print 
 	print "[Info] Early Interrupt at", debug.recorder.epoch, "Iteration"
 	print "[Info] Saving Parameters..."
-	net.save_params('models/test_{}.params'.format(str(debug.recorder.epoch)))
+	net.save_params('models/test2_{}.params'.format(str(debug.recorder.epoch)))
 	print "[Info] Finished"
 
 
