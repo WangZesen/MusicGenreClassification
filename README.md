@@ -4,7 +4,7 @@ IPP
 
 ### Todo
 - [x] Data Iterator
-- [ ] Log Mel Feature
+- [x] Log Mel Feature
 - [ ] Feature Extraction
 - [ ] PCA on Feature
 
