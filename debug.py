@@ -19,7 +19,7 @@ def epoch_end_callback(epoch, symbol, arg_params, aux_params):
 
 def eval_end_callback(info):
 	# print info
-	if (info.epoch + 1) % 2 == 0:
+	if True:# (info.epoch + 1) % 1 == 0:
 		metric, values = info.eval_metric.get()
 		for i in range(len(metric)):
 			print "[Validation Epoch {}]".format(str(info.epoch + 1)), metric[i] + ":", values[i]
