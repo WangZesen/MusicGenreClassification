@@ -26,7 +26,8 @@ IPP
 * Data setup (60% Train, 40% Validation, 10 Genres, etc.)
 * Test data (downloaded from netease music)
 * SGD, 8 as batch size
-* Layer-wise pretrain (http://www.iro.umontreal.ca/~lisa/pointeurs/BengioNips2006All.pdf)
+* ReLU http://proceedings.mlr.press/v15/glorot11a/glorot11a.pdf
+* Dropout http://www.cs.toronto.edu/~fritz/absps/dropout.pdf
 
 ## Post-process
 
