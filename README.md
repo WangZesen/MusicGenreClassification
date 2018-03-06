@@ -23,7 +23,7 @@ IPP
 
 ## Train
 
-* Data setup (60% Train, 40% Test, 10 Genres, etc.)
+* Data setup (60% Train, 40% Validation, 10 Genres, etc.)
 * SGD, 8 as batch size
 * Layer-wise pretrain (http://www.iro.umontreal.ca/~lisa/pointeurs/BengioNips2006All.pdf)
 
@@ -39,7 +39,7 @@ IPP
   
 | Experiment | Accuracy | Top-3 Accurcay | Generalization Error | 5-NN Error |
 |------------|----------|----------------|----------------------|------------|
-| 5-channel test      |  1    |
+| 5-channel Train  |   0.998   | | 0.000 | 0.997 |
 
 * Result of PCA
 * Cluster test on song lists of netease music (maybe)
