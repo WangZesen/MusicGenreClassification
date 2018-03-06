@@ -24,7 +24,8 @@ IPP
 ## Train
 
 * Data setup (60% Train, 40% Test, 10 Genres, etc.)
-* Layer-wise pretrain
+* SGD, 8 as batch size
+* Layer-wise pretrain (http://www.iro.umontreal.ca/~lisa/pointeurs/BengioNips2006All.pdf)
 
 ## Post-process
 
@@ -33,7 +34,8 @@ IPP
 
 ## Experiment
 
-* Accuracy, Top-3 accuracy, generalization error (compare with other paper, compare with 1 channel)
+* Accuracy, Top-3 accuracy, generalization error (compare with other paper, compare with 1 channel) 
+  * https://courses.engr.illinois.edu/ece544na/fa2014/Tao_Feng.pdf
 * Result of PCA
 * Cluster test on song lists of netease music (maybe)
 
