@@ -36,9 +36,11 @@ IPP
 
 * Accuracy, Top-3 accuracy, generalization error (compare with other paper, compare with 1 channel) 
   * https://courses.engr.illinois.edu/ece544na/fa2014/Tao_Feng.pdf
+  
 | Experiment | Accuracy | Top-3 Accurcay | Generalization Error | 5-NN Error |
 |------------|----------|----------------|----------------------|------------|
 | 5-channel test      |  1    |
+
 * Result of PCA
 * Cluster test on song lists of netease music (maybe)
 
