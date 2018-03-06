@@ -8,7 +8,11 @@ IPP
 
 * Mel-Frequency
 * Log Power
+
 ![Alt text](analysis/mel/log_power.png?raw=true "Title")
+
+![Alt text](analysis/mel/power.png?raw=true "Title")
+
 * 5 channel
 
 ## Model
