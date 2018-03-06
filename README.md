@@ -40,7 +40,7 @@ IPP
 | Experiment | Accuracy | Top-3 Accurcay | Generalization Error | 5-NN Error |
 |------------|----------|----------------|----------------------|------------|
 | 5-channel Train  |   0.998   | | 0.000 | 0.997 |
-| 5-channel Val | 0.725 | | 0.997 | 0.772 |
+| 5-channel Val | 0.725 | | 0.003 | 0.772 |
 | 5-channel Test | 0.407 | | 0.000 | 0.79 |
 
 * Result of PCA
