@@ -39,9 +39,9 @@ IPP
   
 | Experiment | Accuracy | Top-3 Accurcay | Generalization Error | 5-NN Error |
 |------------|----------|----------------|----------------------|------------|
-| 5-channel Train  |   0.998   | 1.000 | 0.000 | 0.003 |
-| 5-channel Val | 0.725 | 0.922 | 0.003 | 0.228 |
-| 5-channel Test | 0.407 | 0.627 | 0.000 | 0.210 |
+| 5-channel Train  |   0.998   | 1.000 | 0.010 | 0.003 |
+| 5-channel Val | 0.725 | 0.922 | 0.353 | 0.335 |
+| 5-channel Test | 0.407 | 0.627 | 0.310 | 0.310 |
 
 * Result of PCA
 * Cluster test on song lists of netease music (maybe)
