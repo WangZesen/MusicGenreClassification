@@ -50,9 +50,10 @@ IPP
 
 * High accuracy on Train set and Val set:
 * Low accuracy on Test set: 
- * inaccurate label
- * different source of music
- * Generalization Error is relatively low -> cluster and recommendation are possible
+  * inaccurate label
+  * different source of music
+  * Generalization Error is relatively low -> cluster and recommendation are possible
+  * Migration study
 
 
 ## Conclusion
