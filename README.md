@@ -46,6 +46,16 @@ IPP
 * Result of PCA
 * Cluster test on song lists of netease music (maybe)
 
+## Discussion
+
+* High accuracy on Train set and Val set:
+ * 
+* Low accuracy on Test set: 
+ * inaccurate label
+ * different source of music
+ * Generalization Error is low -> cluster and recommendation are possible
+
+
 ## Conclusion
 
 * ?
