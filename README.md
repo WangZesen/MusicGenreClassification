@@ -9,11 +9,11 @@ IPP
 * Mel-Frequency
 * Log Power
 
-![Alt text](analysis/mel/power.png?raw=true "Titlelala")
+![Alt text](analysis/mel/power.png?raw=true "Mel-Frequency Power")
 
-![Alt text](analysis/mel/log_power.png?raw=true "Title")
+![Alt text](analysis/mel/log_power.png?raw=true "Mel-Frequency Log Power")
 
-* 5 channel
+* 5 channel better than 1 channel (preprocess_final.py)
 
 ## Model
 
@@ -33,7 +33,7 @@ IPP
 
 ## Experiment
 
-* Accuracy, Top-3 accuracy, generalization error (compare with other paper)
+* Accuracy, Top-3 accuracy, generalization error (compare with other paper, compare with 1 channel)
 * Result of PCA
 * Cluster test on song lists of netease music (maybe)
 
