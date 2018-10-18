@@ -1,4 +1,4 @@
-# MusicGenreClassification
+# Music Genre Classification
 
 ## Introduction
 
@@ -6,7 +6,7 @@ The project aims to classify preprocessed 30s music clips according to music gen
 
 The project is implemented in Python and MXNet.
 
-# Feature
+
 
 ## Preprocess
 
