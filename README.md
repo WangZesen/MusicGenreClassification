@@ -1,6 +1,10 @@
 # MusicGenreClassification
 
-IPP
+## Introduction
+
+The project aims to classify preprocessed 30s music clips according to music genre tags (rock, pop, classic, etc.).
+
+The project is implemented in Python and MXNet.
 
 # Feature
 
@@ -23,7 +27,7 @@ IPP
 
 ## Train
 
-* Data setup (60% Train, 40% Validation, 10 Genres, etc.)
+* Data setup (10 Genres, 60% Train, 40% Validation)
 * Test data (downloaded from netease music)
 * SGD, 8 as batch size
 * ReLU http://proceedings.mlr.press/v15/glorot11a/glorot11a.pdf
@@ -42,11 +46,11 @@ IPP
 | Experiment | Accuracy | Top-3 Accurcay | Generalization Error | 5-NN Error |
 |------------|----------|----------------|----------------------|------------|
 | 5-channel Train  |   0.998   | 1.000 | 0.010 | 0.003 |
-| 5-channel Val | 0.725 | 0.922 | 0.353 | 0.335 |
+| 5-channel Test | 0.725 | 0.922 | 0.353 | 0.335 |
 | 5-channel Test | 0.407 | 0.627 | 0.310 | 0.310 |
 
 * Result of PCA
-* Cluster test on song lists of netease music (maybe)
+* Cluster test on song lists of netease music (Future work)
 
 ## Discussion
 
@@ -56,10 +60,5 @@ IPP
   * different source of music
   * Generalization Error is relatively low -> cluster and recommendation are possible
   * Migration study
-
-
-## Conclusion
-
-* ?
 
 data file link: https://drive.google.com/drive/folders/1WQ0koI3FuHLLomt8itUAH0475ZfuN303?usp=sharing
