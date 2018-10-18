@@ -50,6 +50,7 @@ The project is implemented in Python and MXNet.
 | 5-channel Test | 0.407 | 0.627 | 0.310 | 0.310 |
 
 * Result of PCA
+![2d](analysis/2d.png)
 * Cluster test on song lists of netease music (Future work)
 
 ## Discussion
